@@ -116,13 +116,14 @@ const initCanvas = () => {
             }
         }
 
-        this.hitDetect = function(m, i) {
+        this.hitDetect = function(m, mi) {
             for(let i = 0; i < enemies.length; i++) {
                 let e = enemies[i];
 
                 if( m.x <= e.x + e.width && m.x + m.w >= e.x &&
                     m.y >= e.y && m.y <= e.y + e.height) {
                     enemies.splice(i, 1);
+                    this.misiles.splice(this.misiles[mi], i)
                     document.querySelector('.barra').innerHTML = `Enemigo ${e.id} destruido ! `
                 }
             }
